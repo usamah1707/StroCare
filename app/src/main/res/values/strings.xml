@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">StroCare</string>
+    <string name="login">Masuk</string>
+    <string name="name">Nama</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="birthday">Birthday</string>
+    <string name="greeting">Selamat datang</string>
+    <string name="forgot_password">Lupa password?</string>
+    <string name="daftar">Belum punya akun? Daftar di sini</string>
+    <string name="register">Daftar</string>
+    <string name="akun_baru">Buat akun baru</string>
+    <string name="beranda">Beranda</string>
+    <string name="jadwal">Jadwal Konsumsi Obat</string>
+    <string name="monitor">Monitor</string>
+    <string name="profil">Profil</string>
+    <string name="tambah_jadwal_baru">Buat Jadwal Baru</string>
+    <string name="tambahkan_jadwal">Tambahkan Jadwal</string>
+    <string name="tambah_laporan_baru">Jelaskan Kondisi Baru</string>
+    <string name="tambah_laporan_mandiri">Tambahkan Laporan Mandiri</string>
+    <string name="label_tambah_jadwal">Tambah Jadwal Obat</string>
+    <string name="nama_obat_hint">Nama obat</string>
+    <string name="dosis_obat_hint">Dosis obat</string>
+    <string name="nama_dokter_hint">Nama dokter</string>
+    <string name="waktu_hint">Pilih waktu</string>
+    <string name="label_tambah_laporan">Jelaskan Kondisi Anda</string>
+    <string-array name="sehat">
+        <item>Mantab Bugar Berstamina</item>
+        <item>Sehat</item>
+        <item>Ga Kerasa Apa2</item>
+        <item>Ga Enak Badan</item>
+        <item>Sakit</item>
+    </string-array>
+</resources>
