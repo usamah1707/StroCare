@@ -36,18 +36,45 @@
                         android:layout_margin="10dp"
                         android:fontFamily="@font/montserrat_regular"
                         android:gravity="center"
-                        android:text="@string/label_tambah_laporan"
+                        android:text="@string/hasil_laporan_mandiri"
                         android:textColor="@color/accent_color"
                         android:textSize="30sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_hasil_laporan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="Placeholder"
+                            android:textColor="@color/grey"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_tanggal_laporan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="00/00/0000"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
@@ -61,28 +88,31 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="@string/pertanyaan_1"
+                            android:text="@string/pernyataan_1"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
 
-                        <Spinner
-                            android:id="@+id/spinner_jawaban_report1"
+                        <TextView
+                            android:id="@+id/tv_hasil_q1"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="3"
-                            android:backgroundTint="@color/accent_color"
-                            android:entries="@array/array_jawaban" />
+                            android:gravity="center|start"
+                            android:text="Placeholder"
+                            android:textColor="@color/grey"
+                            android:textSize="16sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/accent_color"/>
+                            android:background="@color/accent_color" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
@@ -96,29 +126,31 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="@string/pertanyaan_2"
+                            android:text="@string/pernyataan_2"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
 
-                        <Spinner
-
-                            android:id="@+id/spinner_jawaban_report2"
+                        <TextView
+                            android:id="@+id/tv_hasil_q2"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="3"
-                            android:backgroundTint="@color/accent_color"
-                            android:entries="@array/array_jawaban" />
+                            android:gravity="center|start"
+                            android:text="Placeholder"
+                            android:textColor="@color/grey"
+                            android:textSize="16sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/accent_color"/>
+                            android:background="@color/accent_color" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
@@ -132,37 +164,31 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="@string/pertanyaan_3"
+                            android:text="@string/pernyataan_3"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
 
-                        <Spinner
-                            android:id="@+id/spinner_jawaban_report3"
+                        <TextView
+                            android:id="@+id/tv_hasil_q3"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="3"
-                            android:backgroundTint="@color/accent_color"
-                            android:entries="@array/array_jawaban" />
+                            android:gravity="center|start"
+                            android:text="Placeholder"
+                            android:textColor="@color/grey"
+                            android:textSize="16sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/accent_color"/>
+                            android:background="@color/accent_color" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
-
-            <android.widget.Button
-                android:id="@+id/button_add_report"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Buat Laporan Harian"
-                android:textColor="@color/white"
-                android:background="@drawable/shape_button_general"/>
 
         </LinearLayout>
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/add_contact_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_button_general_border_only"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/label_tambah_kontak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:text="@string/tambah_kontak_title"
+                    android:textColor="@color/accent_color"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/nama_kontak_field"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:drawableLeft="@drawable/ic_contact"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_nama_kontak"
+                            android:textSize="20sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/nomor_kontak_field"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_nomor_kontak"
+                            android:textSize="20sp" />
+
+                        <android.widget.Button
+                            android:id="@+id/button_pilih_kontak"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/shape_button_general_border_only"
+                            android:inputType="time"
+                            android:text="@string/pilih_kontak"
+                            android:textColor="@color/accent_color"
+                            android:textSize="15sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</layout>

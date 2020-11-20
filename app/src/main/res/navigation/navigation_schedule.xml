@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_schedule"
+    app:startDestination="@id/listScheduleFragment">
+
+    <fragment
+        android:id="@+id/addSchedulerFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.AddSchedulerFragment"
+        android:label="Add" >
+        <action
+            android:id="@+id/action_addSchedulerFragment_to_listScheduleFragment"
+            app:destination="@id/listScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listScheduleFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.ListScheduleFragment"
+        android:label="List" >
+        <action
+            android:id="@+id/action_listScheduleFragment_to_addSchedulerFragment"
+            app:destination="@id/addSchedulerFragment"
+            app:popUpTo="@id/listScheduleFragment" />
+        <action
+            android:id="@+id/action_listScheduleFragment_to_updateScheduleFragment"
+            app:destination="@id/updateScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateScheduleFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.UpdateScheduleFragment"
+        android:label="Update" >
+        <action
+            android:id="@+id/action_updateScheduleFragment_to_listScheduleFragment"
+            app:destination="@id/listScheduleFragment"
+            app:popUpTo="@id/listScheduleFragment" />
+        <argument
+            android:name="currentSchedule"
+            app:argType="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Schedule" />
+    </fragment>
+</navigation>

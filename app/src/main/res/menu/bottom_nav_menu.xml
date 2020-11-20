@@ -15,9 +15,9 @@
         android:title="" />
 
     <item
-        android:id="@+id/miMonitor"
-        android:icon="@drawable/ic_monitor"
-        android:title="Monitor" />
+        android:id="@+id/miReport"
+        android:icon="@drawable/ic_report"
+        android:title="Report" />
 
     <item
         android:id="@+id/miProfile"

@@ -9,7 +9,7 @@
         android:background="@color/main_color">
 
         <fragment
-            android:id="@+id/schedule_fragment"
+            android:id="@+id/report_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -18,19 +18,20 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
             app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@id/coordinatorLayoutSchedule"
+            app:layout_constraintBottom_toTopOf="@id/coordinatorLayoutReport"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/navigation_schedule" />
+            app:navGraph="@navigation/navigation_report" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayoutSchedule"
+            android:id="@+id/coordinatorLayoutReport"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="@color/main_color"
             app:layout_constraintBottom_toBottomOf="parent">
+
 
             <com.google.android.material.bottomappbar.BottomAppBar
                 android:id="@+id/bottomNavBar"
@@ -54,7 +55,7 @@
             </com.google.android.material.bottomappbar.BottomAppBar>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/button_navigation_schedule"
+                android:id="@+id/button_navigation_report"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/accent_color"

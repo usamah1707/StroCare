@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_report"
+    app:startDestination="@id/listReportFragment">
+
+    <fragment
+        android:id="@+id/addReportFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.AddReportFragment"
+        android:label="Add" >
+        <action
+            android:id="@+id/action_addReportFragment_to_listReportFragment"
+            app:destination="@id/listReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listReportFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.ListReportFragment"
+        android:label="List">
+        <action
+            android:id="@+id/action_listReportFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment"
+            app:popUpTo="@id/listReportFragment" />
+        <action
+            android:id="@+id/action_listReportFragment_to_detailReportFragment"
+            app:destination="@id/detailReportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailReportFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.DetailReportFragment"
+        android:label="Detail" >
+        <action
+            android:id="@+id/action_detailReportFragment_to_listReportFragment"
+            app:destination="@id/listReportFragment"
+            app:popUpTo="@id/listReportFragment" />
+        <argument
+            android:name="currentReport"
+            app:argType="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Report" />
+        <action
+            android:id="@+id/action_detailReportFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment" />
+    </fragment>
+</navigation>

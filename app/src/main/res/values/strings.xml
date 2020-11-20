@@ -1,35 +1,67 @@
 <resources>
+    //General string assets
     <string name="app_name">StroCare</string>
+    <string name="beranda">Beranda</string>
+    <string name="jadwal">Jadwal Konsumsi Obat</string>
+    <string name="Report">Laporan</string>
+    <string name="profil">Profil</string>
+
+    //Auth string assets
     <string name="login">Masuk</string>
     <string name="name">Nama</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="birthday">Birthday</string>
-    <string name="greeting">Selamat datang</string>
     <string name="forgot_password">Lupa password?</string>
     <string name="daftar">Belum punya akun? Daftar di sini</string>
     <string name="register">Daftar</string>
     <string name="akun_baru">Buat akun baru</string>
-    <string name="beranda">Beranda</string>
-    <string name="jadwal">Jadwal Konsumsi Obat</string>
-    <string name="monitor">Monitor</string>
-    <string name="profil">Profil</string>
+
+    //Profile string assets
+    <string name="pilih_kontak">Pilih kontak</string>
+    <string name="tambah_kontak_title">Tambah Kontak</string>
+    <string name="hint_nama_kontak">Nama kontak</string>
+    <string name="hint_nomor_kontak">Nomor kontak</string>
+
+    //Schedule string assets
     <string name="tambah_jadwal_baru">Buat Jadwal Baru</string>
-    <string name="tambahkan_jadwal">Tambahkan Jadwal</string>
-    <string name="tambah_laporan_baru">Jelaskan Kondisi Baru</string>
-    <string name="tambah_laporan_mandiri">Tambahkan Laporan Mandiri</string>
+    <string name="kembali_ke_daftar_jadwal">Kembali Ke Daftar</string>
+    <string name="update_jadwal">Update Jadwal</string>
     <string name="label_tambah_jadwal">Tambah Jadwal Obat</string>
+    <string name="label_update_jadwal">Ubah Jadwal Obat</string>
     <string name="nama_obat_hint">Nama obat</string>
     <string name="dosis_obat_hint">Dosis obat</string>
     <string name="nama_dokter_hint">Nama dokter</string>
-    <string name="waktu_hint">Pilih waktu</string>
+    <string name="waktu_placeholder">00:00</string>
+    <string name="pilih_waktu">Pilih waktu</string>
+
+    //Report string assets
+    <string name="tambah_laporan_baru">Jelaskan Kondisi Baru</string>
+    <string name="kembali_ke_daftar_laporan">Kembali Ke Daftar</string>
     <string name="label_tambah_laporan">Jelaskan Kondisi Anda</string>
-    <string-array name="sehat">
-        <item>Mantab Bugar Berstamina</item>
-        <item>Sehat</item>
-        <item>Ga Kerasa Apa2</item>
-        <item>Ga Enak Badan</item>
-        <item>Sakit</item>
+    <string name="klik_detail_report">Klik untuk detail</string>
+    <string name="hasil_laporan_mandiri">Hasil Laporan Mandiri</string>
+    <string name="pertanyaan_1">Bagaimana kemampuan berbicara anda hari ini?</string>
+    <string name="pertanyaan_2">Bagaimana kemampuan penglihatan anda hari ini?</string>
+    <string name="pertanyaan_3">Bagaimana kondisi badan anda hari ini?</string>
+    <string name="pernyataan_1">Kemampuan berbicara:</string>
+    <string name="pernyataan_2">Kemampuan penglihatan:</string>
+    <string name="pernyataan_3">Kondisi badan:</string>
+
+
+    //Report string-array assets
+    <string-array name="array_jawaban">
+        <item>Pilih jawaban</item>
+        <item>Baik</item>
+        <item>Agak buruk</item>
+        <item>Buruk</item>
     </string-array>
+    <string-array name="array_kesimpulan">
+        <item>SEHAT</item>
+        <item>KURANG SEHAT</item>
+        <item>TIDAK SEHAT</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

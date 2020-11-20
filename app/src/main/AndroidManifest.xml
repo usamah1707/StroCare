@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare">
 
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,25 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Strocare">
         <activity
-            android:name=".scheduler.SchedulerActivity"
+            android:name=".SchedulerActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".profile.ProfileActivity"
+            android:name=".ProfileActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".monitor.MonitorActivity"
+            android:name=".ReportActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".HomeActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".auth.LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.RegisterActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
+        <receiver android:name=".receiver.AlarmReceiver"/>
     </application>
 
 </manifest>

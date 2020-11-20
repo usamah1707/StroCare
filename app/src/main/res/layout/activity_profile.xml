@@ -3,52 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_color"
-        tools:context=".home.HomeActivity">
+        android:background="@color/main_color">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomNavBar"
+        <LinearLayout
+            android:id="@+id/profile_linear_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:fabCradleMargin="10dp"
-            android:backgroundTint="@color/white"
-            app:fabCradleRoundedCornerRadius="10dp">
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/profile_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavView"
+            <TextView
+                android:id="@+id/tv_nama_akun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="@font/gilroy_light"
+                android:textSize="28sp"
+                android:text="Usamah Nashirul Haq"
+                android:gravity="end"/>
+
+            <TextView
+                android:id="@+id/tv_email_akun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="@font/gilroy_light"
+                android:textSize="16sp"
+                android:text="usamah1707@gmail.com"
+                android:gravity="end"/>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
-                android:background="@android:color/transparent"
-                app:itemIconTint="@drawable/tab_color"
-                app:itemTextColor="@drawable/tab_color"
-                app:menu="@menu/bottom_nav_menu" />
+                android:layout_marginTop="15dp">
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/contact_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="5dp" />
+            </RelativeLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/accent_color"
-            app:tint="@color/white"
-            android:src="@drawable/ic_emergency"
-            app:layout_anchor="@id/bottomNavBar"
-            app:maxImageSize="48dp" />
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/profile_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/coordinatorLayoutProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:navGraph="@navigation/navigation_profile" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayoutProfile"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/main_color"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomNavBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/white"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="10dp">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    app:itemIconTint="@drawable/tab_color"
+                    app:itemTextColor="@drawable/tab_color"
+                    app:menu="@menu/bottom_nav_menu" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_navigation_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent_color"
+                android:src="@drawable/ic_sms"
+                app:layout_anchor="@id/bottomNavBar"
+                app:maxImageSize="36dp"
+                app:tint="@color/white" />
 
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/profil"
-            android:textSize="38sp"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
