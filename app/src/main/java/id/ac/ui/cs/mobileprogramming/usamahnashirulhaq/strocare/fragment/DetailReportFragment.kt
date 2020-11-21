@@ -16,7 +16,6 @@ class DetailReportFragment : Fragment() {
 
     private lateinit var viewModel: ReportViewModel
     private val args by navArgs<DetailReportFragmentArgs>()
-    private val listOfAnswer = listOf<String>("","Baik", "Agak buruk", "Buruk")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +27,7 @@ class DetailReportFragment : Fragment() {
             container,
             false
         )
+        val listOfAnswer = listOf<String>("",getString(R.string.baik), getString(R.string.agak_buruk), getString(R.string.buruk))
 
         viewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
 

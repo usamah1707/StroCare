@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.data.ContactDatabase
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Contact
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.repository.ContactRepository
@@ -26,7 +27,7 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
     private val CONTACT_READ_REQUEST_CODE: Int = 111
     private val READ_CONTACT_PERMISSION: String = Manifest.permission.READ_CONTACTS
     private val SMS_PERMISSION: String = Manifest.permission.SEND_SMS
-    private val PESAN: String = "EMERGENCY! TOLONG CEK SAYA\n-Dikirim dari fitur emergency StroCare-"
+    private val PESAN: String = R.string.pesan_sms.toString()
 
 
     val readAllData: LiveData<List<Contact>>
@@ -61,7 +62,7 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
                     ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
                 )
                 var query =
-                    activity?.contentResolver!!.query(contactUri, arrayOfContact, null, null, null)
+                    activity.contentResolver!!.query(contactUri, arrayOfContact, null, null, null)
                 if (query?.moveToFirst()!!) {
                     nomor_kontak_field.setText(query.getString(0).toString())
                     nama_kontak_field.setText(query.getString(1).toString())
@@ -69,7 +70,7 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
                 query.close()
             }
         } else {
-            Toast.makeText(context, "Izin read-contact belum diberikan", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.izin_read_kontak, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -77,9 +78,9 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
         if (checkPermission(SMS_PERMISSION, context)) {
             var smsManager: SmsManager = SmsManager.getDefault()
             smsManager.sendTextMessage(nomorTelepon, null, PESAN, null, null)
-            Toast.makeText(context, "SMS Terkirim!", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.sms_berhasil, Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(context, "Izin SMS belum diberikan", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.izin_sms, Toast.LENGTH_LONG).show()
         }
     }
 

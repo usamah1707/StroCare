@@ -46,6 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/beranda"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/white"
             android:textSize="38sp"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,7 +2,7 @@
     //General string assets
     <string name="app_name">StroCare</string>
     <string name="beranda">Beranda</string>
-    <string name="jadwal">Jadwal Konsumsi Obat</string>
+    <string name="jadwal">Jadwal</string>
     <string name="Report">Laporan</string>
     <string name="profil">Profil</string>
 
@@ -32,7 +32,7 @@
     <string name="nama_obat_hint">Nama obat</string>
     <string name="dosis_obat_hint">Dosis obat</string>
     <string name="nama_dokter_hint">Nama dokter</string>
-    <string name="waktu_placeholder">00:00</string>
+    <string name="waktu_placeholder" translatable="false">00:00</string>
     <string name="pilih_waktu">Pilih waktu</string>
 
     //Report string assets
@@ -41,15 +41,50 @@
     <string name="label_tambah_laporan">Jelaskan Kondisi Anda</string>
     <string name="klik_detail_report">Klik untuk detail</string>
     <string name="hasil_laporan_mandiri">Hasil Laporan Mandiri</string>
+    <string name="buat_laporan_harian">Buat Laporan Harian</string>
     <string name="pertanyaan_1">Bagaimana kemampuan berbicara anda hari ini?</string>
     <string name="pertanyaan_2">Bagaimana kemampuan penglihatan anda hari ini?</string>
     <string name="pertanyaan_3">Bagaimana kondisi badan anda hari ini?</string>
     <string name="pernyataan_1">Kemampuan berbicara:</string>
     <string name="pernyataan_2">Kemampuan penglihatan:</string>
     <string name="pernyataan_3">Kondisi badan:</string>
-
+    
+    //Toast string assets
+    <string name="berhasil_logout">Berhasil logout</string>
+    <string name="terjadi_kesalahan">Terjadi kesalahan</string>
+    <string name="nama_kosong">Nama tidak boleh kosong</string>
+    <string name="email_kosong">Email tidak boleh kosong</string>
+    <string name="password_kosong">Password tidak boleh kosong</string>
+    <string name="password_kurang">Password harus lebih dari 6 huruf</string>
+    <string name="login_gagal">Log in gagal, Email atau Password yang anda masukan salah.</string>
+    <string name="login_berhasil">Login berhasil</string>
+    <string name="registrasi_gagal">Registrasi gagal. Harap coba lagi.</string>
+    <string name="registrasi_berhasil">Berhasil menyimpan akun dengan nama: </string>
+    <string name="kontak_berhasil">Berhasil menambahkan kontak!</string>
+    <string name="kontak_field_kurang">Semua kolom harus diisi</string>
+    <string name="laporan_berhasil">Berhasil menambahkan laporan!</string>
+    <string name="laporan_field_kurang">Semua pertanyaan harus dijawab</string>
+    <string name="gagal_menyimpulkan">Gagal Menyimpulkan</string>
+    <string name="jadwal_berhasil">Berhasil menambahkan jadwal!</string>
+    <string name="jadwal_field_kurang">Semua field harus diisi</string>
+    <string name="jadwal_update_berhasil">Berhasil mengubah jadwal!</string>
+    <string name="jadwal_delete_berhasil">Obat %1$s berhasil dihapus</string>
+    <string name="dialog_allert_title">Hapus %1$s</string>
+    <string name="dialog_allert_message">Anda yakin akan menghapus %1$s ?</string>
+    <string name="dialog_allert_ya">Ya</string>
+    <string name="dialog_allert_tidak">Tidak</string>
+    <string name="pesan_sms">EMERGENCY! TOLONG CEK SAYA\n-Dikirim dari fitur emergency StroCare-</string>
+    <string name="izin_read_kontak">Izin read-contact belum diberikan</string>
+    <string name="izin_sms">Izin SMS belum diberikan</string>
+    <string name="sms_berhasil">SMS Terkirim!</string>
 
     //Report string-array assets
+    <string name="baik">Baik</string>
+    <string name="agak_buruk">Agak buruk</string>
+    <string name="buruk">Buruk</string>
+    <string name="sehat">SEHAT</string>
+    <string name="kurang_sehat">KURANG SEHAT</string>
+    <string name="tidak_sehat">TIDAK SEHAT</string>
     <string-array name="array_jawaban">
         <item>Pilih jawaban</item>
         <item>Baik</item>
@@ -61,7 +96,5 @@
         <item>KURANG SEHAT</item>
         <item>TIDAK SEHAT</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

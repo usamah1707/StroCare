@@ -27,8 +27,8 @@ class ReportViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun makeConclusion(q1: Int, q2: Int, q3: Int): String {
-        val listofConclusion = listOf<String>("SEHAT", "KURANG SEHAT", "TIDAK SEHAT")
+    fun makeConclusion(q1: Int, q2: Int, q3: Int, listofConclusion: List<String>, failConclude: String): String {
+
         var sumHealthPoint = q1 + q2 + q3
         if (sumHealthPoint == 3) {
             return listofConclusion[0]
@@ -40,7 +40,7 @@ class ReportViewModel(application: Application) : AndroidViewModel(application) 
             return listofConclusion[2]
         }
         else {
-            return "Gagal Menyimpulkan"
+            return failConclude
         }
     }
 

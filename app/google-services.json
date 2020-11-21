@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "889161985718",
+    "firebase_url": "https://strocare-3047f.firebaseio.com",
+    "project_id": "strocare-3047f",
+    "storage_bucket": "strocare-3047f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889161985718:android:8049e280ebd523f77e0017",
+        "android_client_info": {
+          "package_name": "id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889161985718-h90p89fub101odvjdfrb6miu5f3fkt4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9SzkNCsNyVbiALKiW1DXEKs1tlBl7LLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889161985718-h90p89fub101odvjdfrb6miu5f3fkt4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,11 +4,11 @@
 
     <LinearLayout
         android:id="@+id/add_contact_linearlayout"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:background="@drawable/shape_button_general_border_only"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                     android:gravity="center"
                     android:text="@string/tambah_kontak_title"
                     android:textColor="@color/accent_color"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -38,7 +38,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="vertical">
 
@@ -51,8 +50,7 @@
                             android:id="@+id/nama_kontak_field"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:drawableStart="@drawable/ic_contact"
+                            android:drawableLeft="@drawable/ic_contact"
                             android:fontFamily="@font/montserrat_regular"
                             android:hint="@string/hint_nama_kontak"
                             android:textSize="20sp" />
@@ -74,13 +72,14 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/montserrat_regular"
                             android:hint="@string/hint_nomor_kontak"
-                            android:inputType="phone"
                             android:textSize="20sp" />
 
                         <android.widget.Button
                             android:id="@+id/button_pilih_kontak"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
                             android:layout_marginStart="10dp"
                             android:layout_marginBottom="10dp"
                             android:layout_weight="2"
@@ -88,7 +87,7 @@
                             android:inputType="time"
                             android:text="@string/pilih_kontak"
                             android:textColor="@color/accent_color"
-                            android:textSize="12sp" />
+                            android:textSize="10sp" />
 
 
                     </LinearLayout>

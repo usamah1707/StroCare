@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="authViewModel"
             type="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel" />
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_auth"
+        android:layout_marginEnd="20dp"
         android:fitsSystemWindows="true">
 
         <RelativeLayout
@@ -21,46 +23,97 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:padding="20dp"
+            android:padding="10dp"
             app:layout_anchorGravity="bottom|center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/sign_in_linear_layout"
-                android:layout_below="@+id/strocare_top_icon"
-                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_toEndOf="@+id/strocare_top_icon">
 
                 <TextView
-                    android:id="@+id/label_email"
+                    android:id="@+id/register_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:layout_marginTop="0dp"
-                    android:backgroundTint="@color/white"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/email"
+                    android:text="@string/akun_baru"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     app:layout_anchorGravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/register_label_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/name"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    app:layout_anchorGravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/register_label" />
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/login_email_layout"
+                    android:id="@+id/register_name_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_email">
+                    app:layout_constraintTop_toBottomOf="@+id/register_label_name">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/login_email_field"
+                        android:id="@+id/register_name_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="6dp"
+                        android:autofillHints=""
+                        android:background="@drawable/shape_button_transparent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:inputType="textPersonName"
+                        android:letterSpacing="0.04"
+                        android:padding="12.5dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:theme="@style/LoginTextInputLayoutStyle" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/register_label_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/email"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    app:layout_anchorGravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/register_name_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/register_label_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_email_field"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
@@ -73,35 +126,38 @@
                         android:letterSpacing="0.04"
                         android:padding="12.5dp"
                         android:textColor="@android:color/white"
+                        android:textSize="14sp"
                         android:theme="@style/LoginTextInputLayoutStyle" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:id="@+id/label_password"
+                    android:id="@+id/register_label_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="@string/password"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     app:layout_anchorGravity="center"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/login_email_layout" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/register_email_layout" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/login_password_layout"
+                    android:id="@+id/register_password_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_password"
+                    app:layout_constraintTop_toBottomOf="@+id/register_label_password"
+                    app:layout_constraintVertical_bias="0.0"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/login_password_field"
+                        android:id="@+id/register_password_field"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
@@ -114,69 +170,40 @@
                         android:letterSpacing="0.04"
                         android:padding="12.5dp"
                         android:textColor="@android:color/white"
+                        android:textSize="14sp"
                         android:theme="@style/LoginTextInputLayoutStyle" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <Button
-                    android:id="@+id/button_forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="18dp"
-                    android:background="@drawable/shape_button_transparent"
-                    android:fontFamily="@font/gilroy_light"
-                    android:gravity="left|center_vertical"
-                    android:letterSpacing="0.04"
-                    android:paddingStart="0dp"
-                    android:text="@string/forgot_password"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    app:boxStrokeColor="@android:color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/login_password_layout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:id="@+id/sign_in_linear_layout"
-                android:layout_width="354dp"
-                android:layout_height="126dp"
+                android:id="@+id/register_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="33dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="0dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-                    android:id="@+id/button_sign_in"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/shape_button_login"
-                    android:fontFamily="@font/gilroy_light"
-                    android:letterSpacing="0.04"
-                    android:text="@string/login"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:spinning_bar_color="@color/accent_color"/>
-
-                <Button
                     android:id="@+id/button_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_button_transparent"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/shape_button_register"
+                    android:fontFamily="@font/gilroy_light"
                     android:letterSpacing="0.04"
-                    android:text="@string/daftar"
+                    android:text="@string/register"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="18sp"
+                    app:spinning_bar_color="#FF7400" />
+
             </LinearLayout>
 
             <ImageView
@@ -185,13 +212,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
                 app:srcCompat="@drawable/image_strocare_icon" />
 
+
         </RelativeLayout>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

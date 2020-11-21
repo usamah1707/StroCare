@@ -75,11 +75,11 @@ class UpdateScheduleFragment : Fragment() {
                 Schedule(args.currentSchedule.id, namaObat, dosisObat, namaDokter, waktuKonsumsi)
             //update schedule
             viewModel.updateSchedule(updatedSchedule)
-            Toast.makeText(requireContext(), "Berhasil mengubah jadwal!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), R.string.jadwal_update_berhasil, Toast.LENGTH_LONG).show()
             //navigate back
             findNavController().navigate(R.id.action_updateScheduleFragment_to_listScheduleFragment)
         } else {
-            Toast.makeText(requireContext(), "Semua field harus diisi", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -95,20 +95,20 @@ class UpdateScheduleFragment : Fragment() {
     }
 
     private fun deleteSchedule() {
+        var namaObat = args.currentSchedule.namaObat
         AlertDialog.Builder(requireContext())
-            .setPositiveButton("Ya") { _, _ ->
-                var namaObat = args.currentSchedule.namaObat.toString()
+            .setPositiveButton(R.string.dialog_allert_ya) { _, _ ->
                 viewModel.deleteSchedule(args.currentSchedule)
                 Toast.makeText(
                     requireContext(),
-                    "Obat ${namaObat} berhasil dihapus",
+                    getString(R.string.jadwal_delete_berhasil, namaObat),
                     Toast.LENGTH_LONG
                 ).show()
                 findNavController().navigate(R.id.action_updateScheduleFragment_to_listScheduleFragment)
             }
-            .setNegativeButton("Tidak") { _, _ -> }
-            .setTitle("Hapus ${args.currentSchedule.namaObat}?")
-            .setMessage("Anda yakin akan menghapus ${args.currentSchedule.namaObat}?")
+            .setNegativeButton(R.string.dialog_allert_tidak) { _, _ -> }
+            .setTitle(getString(R.string.dialog_allert_title, namaObat))
+            .setMessage(getString(R.string.dialog_allert_message, namaObat))
             .show()
     }
 

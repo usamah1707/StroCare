@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //General string assets
+    <string name="app_name">StroCare</string>
+    <string name="beranda">Home</string>
+    <string name="jadwal">Schedule</string>
+    <string name="Report">Report</string>
+    <string name="profil">Profile</string>
+
+    //Auth string assets
+    <string name="login">Login</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="daftar">Don\'t have an account? Register here</string>
+    <string name="register">Register</string>
+    <string name="akun_baru">Create new account</string>
+
+    //Profile string assets
+    <string name="pilih_kontak">Select contact</string>
+    <string name="tambah_kontak_title">Add contact</string>
+    <string name="hint_nama_kontak">Contact name</string>
+    <string name="hint_nomor_kontak">Contact number</string>
+
+    //Schedule string assets
+    <string name="tambah_jadwal_baru">Create New Schedule</string>
+    <string name="kembali_ke_daftar_jadwal">Back to the list</string>
+    <string name="update_jadwal">Update Schedule</string>
+    <string name="label_tambah_jadwal">Add Medical Schedule</string>
+    <string name="label_update_jadwal">Change Medical Schedule</string>
+    <string name="nama_obat_hint">Drug name</string>
+    <string name="dosis_obat_hint">Drug dosage</string>
+    <string name="nama_dokter_hint">Doctor name</string>
+    <string name="pilih_waktu">Pick a time</string>
+
+    //Report string assets
+    <string name="tambah_laporan_baru">Explain New Condition</string>
+    <string name="kembali_ke_daftar_laporan">Back to the list</string>
+    <string name="label_tambah_laporan">Explain Your Condition</string>
+    <string name="klik_detail_report">Click for details</string>
+    <string name="hasil_laporan_mandiri">Result of Report</string>
+    <string name="buat_laporan_harian">Create Daily Report</string>
+    <string name="pertanyaan_1">How was your speaking ability today?</string>
+    <string name="pertanyaan_2">How is your vision ability today?</string>
+    <string name="pertanyaan_3">How is your body condition today?</string>
+    <string name="pernyataan_1">Speaking ability:</string>
+    <string name="pernyataan_2">Vision ability:</string>
+    <string name="pernyataan_3">Body condition:</string>
+
+    //Report string-array assets
+    <string name="baik">Good</string>
+    <string name="agak_buruk">Not very well</string>
+    <string name="buruk">Bad</string>
+    <string name="sehat">HEALTHY</string>
+    <string name="kurang_sehat">UNWELL</string>
+    <string name="tidak_sehat">NOT HEALTHY</string>
+    <string-array name="array_jawaban">
+        <item>Choose answer</item>
+        <item>Good</item>
+        <item>Not very well</item>
+        <item>Bad</item>
+    </string-array>
+    <string-array name="array_kesimpulan">
+        <item>HEALTHY</item>
+        <item>UNWELL</item>
+        <item>NOT HEALTHY</item>
+    </string-array>
+
+    //Toast, dialog allert, permission string assets
+    <string name="berhasil_logout">Logout success</string>
+    <string name="terjadi_kesalahan">Error, try again later</string>
+    <string name="nama_kosong">Name field cannot be empty</string>
+    <string name="email_kosong">Name field cannot be empty</string>
+    <string name="password_kosong">Password field cannot be empty</string>
+    <string name="password_kurang">Password must be more than 6 characters</string>
+    <string name="login_gagal">Log in failed, the email or password you entered is wrong.</string>
+    <string name="login_berhasil">Login success</string>
+    <string name="registrasi_gagal">Registration failed. Please try again.</string>
+    <string name="registrasi_berhasil">Successfully saved account with the name:</string>
+    <string name="kontak_berhasil">Successfully added contact!</string>
+    <string name="kontak_field_kurang">All fields are required</string>
+    <string name="laporan_berhasil">Successfully added report!</string>
+    <string name="laporan_field_kurang">All questions must be answered</string>
+    <string name="gagal_menyimpulkan">Failed to Conclude</string>
+    <string name="jadwal_berhasil">Successfully added schedule!</string>
+    <string name="jadwal_field_kurang">All fields are required</string>
+    <string name="jadwal_update_berhasil">Change schedule successfully!</string>
+    <string name="jadwal_delete_berhasil">The drug %1$s was deleted successfully</string>
+    <string name="dialog_allert_title">Delete %1$s</string>
+    <string name="dialog_allert_message">Are you sure you want to delete %1$s ?</string>
+    <string name="dialog_allert_ya">Yes</string>
+    <string name="dialog_allert_tidak">No</string>
+    <string name="pesan_sms">EMERGENCY! PLEASE CHECK ME -Sent from StroCare App-</string>
+    <string name="izin_read_kontak">Read-contact permission has not been granted</string>
+    <string name="izin_sms">SMS permission has not been granted</string>
+    <string name="sms_berhasil">SMS Sent!</string>
+
+</resources>

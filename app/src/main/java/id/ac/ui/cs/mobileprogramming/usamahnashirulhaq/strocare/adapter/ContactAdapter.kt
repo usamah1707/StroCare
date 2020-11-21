@@ -33,11 +33,7 @@ class ContactAdapter() :
 
         holder.namaKontak.text = currentItem.nama
         holder.nomorKontak.text = currentItem.nomorTelepon
-//
-//        holder.itemView.contact_card.setOnClickListener {
-//            val action = ListReportFragmentDirections.actionListReportFragmentToDetailReportFragment(currentItem)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+
     }
 
     override fun getItemCount() = contactList.size

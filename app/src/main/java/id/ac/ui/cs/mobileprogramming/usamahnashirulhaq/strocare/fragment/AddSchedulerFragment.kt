@@ -70,11 +70,11 @@ class AddSchedulerFragment : Fragment() {
             //add schedule to database
             viewModel.addSchedule(schedule)
 
-            Toast.makeText(requireContext(), "Berhasil menambahkan jadwal!", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.jadwal_berhasil, Toast.LENGTH_LONG)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), "Semua field harus diisi", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_LONG).show()
             return false
         }
     }

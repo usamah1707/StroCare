@@ -160,7 +160,7 @@
                 android:id="@+id/button_add_report"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buat Laporan Harian"
+                android:text="@string/buat_laporan_harian"
                 android:textColor="@color/white"
                 android:background="@drawable/shape_button_general"/>
 

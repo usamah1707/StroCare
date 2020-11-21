@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.content.res.TypedArrayUtils
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
@@ -87,7 +88,7 @@ class AddReportFragment : Fragment() {
         }
 
         addReportButton.setOnClickListener {
-            if(insertDataToDatabase(position1, position2, position3)) {
+            if (insertDataToDatabase(position1, position2, position3)) {
                 question1.setSelection(0)
                 question2.setSelection(0)
                 question3.setSelection(0)
@@ -102,18 +103,23 @@ class AddReportFragment : Fragment() {
         question3: Int,
     ): Boolean {
         if (inputCheck(question1, question2, question3)) {
+            val listofConclusion = listOf<String>(
+                getString(R.string.sehat),
+                getString(R.string.kurang_sehat),
+                getString(R.string.tidak_sehat))
+            val failConclude : String = getString(R.string.gagal_menyimpulkan)
             //create report
-            val kesimpulan = viewModel.makeConclusion(question1, question2, question3)
+            val kesimpulan = viewModel.makeConclusion(question1, question2, question3, listofConclusion, failConclude)
             val currentDate = getCurrentDate()
             val report = Report(0, currentDate, kesimpulan, question1, question2, question3)
             //add report to database
             viewModel.addReport(report)
 
-            Toast.makeText(requireContext(), "Berhasil menambahkan laporan!", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.laporan_berhasil, Toast.LENGTH_LONG)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), "Semua pertanyaan harus dijawab", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.laporan_field_kurang, Toast.LENGTH_LONG)
                 .show()
             return false
         }

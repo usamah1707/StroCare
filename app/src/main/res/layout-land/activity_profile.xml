@@ -14,7 +14,7 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/profile_fragment"
+            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayoutProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,8 +27,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_nama_akun"
@@ -54,43 +54,53 @@
 
                 <ImageView
                     android:id="@+id/button_logout"
-                    android:layout_margin="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:src="@drawable/ic_logout" />
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp">
+                android:orientation="horizontal">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/contact_recycler_view"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/contact_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="0dp"
+                        android:clipToPadding="false"
+                        android:padding="5dp" />
+                </RelativeLayout>
+
+                <fragment
+                    android:id="@+id/profile_fragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:padding="5dp" />
-            </RelativeLayout>
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/navigation_profile"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <fragment
-            android:id="@+id/profile_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="10dp"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@id/coordinatorLayoutProfile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:navGraph="@navigation/navigation_profile" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinatorLayoutProfile"

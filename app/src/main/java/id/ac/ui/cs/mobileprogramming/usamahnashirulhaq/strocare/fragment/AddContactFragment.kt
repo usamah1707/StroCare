@@ -104,11 +104,11 @@ class AddContactFragment : Fragment() {
             //add report to database
             viewModel.addContact(contact)
 
-            Toast.makeText(requireContext(), "Berhasil menambahkan kontak!", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.kontak_berhasil, Toast.LENGTH_LONG)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), "Semua kolom harus diisi", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.kontak_field_kurang, Toast.LENGTH_LONG)
                 .show()
             return false
         }
