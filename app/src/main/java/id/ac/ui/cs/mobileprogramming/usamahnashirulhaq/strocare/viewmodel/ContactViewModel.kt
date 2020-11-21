@@ -27,7 +27,7 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
     private val CONTACT_READ_REQUEST_CODE: Int = 111
     private val READ_CONTACT_PERMISSION: String = Manifest.permission.READ_CONTACTS
     private val SMS_PERMISSION: String = Manifest.permission.SEND_SMS
-    private val PESAN: String = R.string.pesan_sms.toString()
+    private val PESAN: String = application.getString(R.string.pesan_sms)
 
 
     val readAllData: LiveData<List<Contact>>
