@@ -18,6 +18,4 @@ interface ScheduleDao {
 
     @Query("SELECT * FROM schedule_table ORDER BY id DESC")
     fun readAllData(): LiveData<List<Schedule>>
-
-
 }

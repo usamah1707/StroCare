@@ -3,6 +3,8 @@ package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import androidx.core.content.res.TypedArrayUtils.getString
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.service.AlarmService
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants
 import io.karn.notify.Notify
@@ -14,7 +16,7 @@ class AlarmReceiver : BroadcastReceiver() {
         when (intent.action) {
             Constants.ACTION_SET_REPETITIVE_ALARM -> {
                 setRepetitiveAlarm(AlarmService(context))
-                buildNotification(context, "StroCare Reminder Repetitive", "Jangan lupa minum obat")
+                buildNotification(context, context.getString(R.string.judul_notifikasi) , context.getString(R.string.pesan_notifikasi))
             }
         }
     }
@@ -35,5 +37,4 @@ class AlarmReceiver : BroadcastReceiver() {
         }
         alarmService.setRepetitiveAlarm(cal.timeInMillis)
     }
-
 }

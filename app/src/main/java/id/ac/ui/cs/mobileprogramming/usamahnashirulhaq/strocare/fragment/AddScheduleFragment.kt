@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddSchedulerFragment : Fragment() {
+class AddScheduleFragment : Fragment() {
 
     private lateinit var viewModel: ScheduleViewModel
 

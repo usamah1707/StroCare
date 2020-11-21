@@ -34,6 +34,8 @@
     <string name="dosis_obat_hint">Drug dosage</string>
     <string name="nama_dokter_hint">Doctor name</string>
     <string name="pilih_waktu">Pick a time</string>
+    <string name="judul_notifikasi">StroCare Reminder</string>
+    <string name="pesan_notifikasi">Don\'t forget to consume your medicine</string>
 
     //Report string assets
     <string name="tambah_laporan_baru">Explain New Condition</string>

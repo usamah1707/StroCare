@@ -18,6 +18,4 @@ interface ReportDao {
 
     @Query("SELECT * FROM report_table ORDER BY id DESC")
     fun readAllData(): LiveData<List<Report>>
-
-
 }

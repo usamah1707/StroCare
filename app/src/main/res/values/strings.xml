@@ -34,6 +34,8 @@
     <string name="nama_dokter_hint">Nama dokter</string>
     <string name="waktu_placeholder" translatable="false">00:00</string>
     <string name="pilih_waktu">Pilih waktu</string>
+    <string name="judul_notifikasi">StroCare Reminder</string>
+    <string name="pesan_notifikasi">Jangan lupa minum obat</string>
 
     //Report string assets
     <string name="tambah_laporan_baru">Jelaskan Kondisi Baru</string>

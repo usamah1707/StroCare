@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/addSchedulerFragment"
-        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.AddSchedulerFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.AddScheduleFragment"
         android:label="Add" >
         <action
             android:id="@+id/action_addSchedulerFragment_to_listScheduleFragment"

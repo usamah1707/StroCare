@@ -18,6 +18,4 @@ interface ContactDao {
 
     @Query("SELECT * FROM contact_table ORDER BY id DESC")
     fun readAllData(): LiveData<List<Contact>>
-
-
 }

@@ -52,6 +52,4 @@ class AlarmService(private val context: Context) {
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT
         )
-
-
 }
