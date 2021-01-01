@@ -16,10 +16,25 @@
     <string name="daftar">Belum punya akun? Daftar di sini</string>
     <string name="register">Daftar</string>
     <string name="akun_baru">Buat akun baru</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="buat_akun">Buat akun</string>
+    <string name="kembali_ke_login">Masuk</string>
 
     //Profile string assets
     <string name="pilih_kontak">Pilih kontak</string>
     <string name="tambah_kontak_title">Tambah Kontak</string>
+    <string name="dialog_title_izin_ditolak">Izin ditolak</string>
+    <string name="dialog_title_izin_dibutuhkan">Izin dibutuhkan</string>
+    <string name="dialog_message_izin_kontak_ditolak">Izin mengakses kontak telah ditolak. Anda harus memberikan izin secara manual di menu info aplikasi atau pengaturan.</string>
+    <string name="dialog_message_izin_kontak_dibutuhkan">Izin untuk mengakses kontak dibutuhkan untuk menggunakan fitur ini. Jika izin tidak diberikan, maka fitur ini tidak dapat digunakan dan anda harus memberikan izin secara manual di menu info aplikasi</string>
+    <string name="dialog_message_izin_sms_ditolak">Izin mengakses SMS telah ditolak. Anda harus memberikan izin secara manual di menu info aplikasi atau pengaturan.</string>
+    <string name="dialog_message_izin_sms_dibutuhkan">Izin untuk mengakses SMS dibutuhkan untuk menggunakan fitur ini. Jika izin tidak diberikan, maka fitur ini tidak dapat digunakan dan anda harus memberikan izin secara manual di menu info aplikasi</string>
+    <string name="dialog_positive_button">Izinkan</string>
+    <string name="dialog_negative_button">Tolak</string>
+    <string name="dialog_dismiss_button">Tutup</string>
+    <string name="request_result_diberikan">Izin akses diberikan</string>
+    <string name="request_result_ditolak">Izin akses ditolak</string>
     <string name="hint_nama_kontak">Nama kontak</string>
     <string name="hint_nomor_kontak">Nomor kontak</string>
 
@@ -50,7 +65,7 @@
     <string name="pernyataan_1">Kemampuan berbicara:</string>
     <string name="pernyataan_2">Kemampuan penglihatan:</string>
     <string name="pernyataan_3">Kondisi badan:</string>
-    
+
     //Toast string assets
     <string name="berhasil_logout">Berhasil logout</string>
     <string name="terjadi_kesalahan">Terjadi kesalahan</string>
@@ -98,5 +113,7 @@
         <item>KURANG SEHAT</item>
         <item>TIDAK SEHAT</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

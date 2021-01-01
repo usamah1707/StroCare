@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main_color">#1B2532</color>
-    <color name="accent_color">#F5851A</color>
+    <color name="main_background_color">#EAEAEA</color>
+    <color name="accent_color">#FF9234</color>
     <color name="grey">#99000000</color>
+    <color name="auth_start">#D92027</color>
+    <color name="auth_end">#FF9234</color>
 </resources>

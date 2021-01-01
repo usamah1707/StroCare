@@ -1,37 +1,45 @@
 package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.AddContactFragmentBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Contact
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants.READ_CONTACT_PERMISSION
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants.READ_CONTACT_PERMISSION_CODE
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.ContactViewModel
 import kotlinx.android.synthetic.main.add_contact_fragment.*
 
+
 class AddContactFragment : Fragment() {
 
-    private val CONTACT_READ_REQUEST_CODE: Int = 111
     private lateinit var viewModel: ContactViewModel
-
+    private var flagRequestPermissionCalled: Boolean = false
+    private var permissionRequestCounter: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<AddContactFragmentBinding>(
             inflater,
@@ -39,31 +47,93 @@ class AddContactFragment : Fragment() {
             container,
             false
         )
-
-        viewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
-
-        var namaKontak: EditText = binding.namaKontakField
-        var nomorKontak: EditText = binding.nomorKontakField
-        var buttonPilihKontak: Button = binding.buttonPilihKontak
+        val namaKontak: EditText = binding.namaKontakField
+        val nomorKontak: EditText = binding.nomorKontakField
+        val buttonPilihKontak: Button = binding.buttonPilihKontak
 
         namaKontak.setOnClickListener {
-            var intent = Intent(Intent.ACTION_PICK)
-            intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
-            startActivityForResult(intent, CONTACT_READ_REQUEST_CODE)
+            if (!checkPermission(READ_CONTACT_PERMISSION, requireContext())) {
+                if (!flagRequestPermissionCalled) {
+                    requestContactPermission(requireContext(), requireActivity())
+                } else {
+                    AlertDialog.Builder(context)
+                        .setTitle(R.string.dialog_title_izin_ditolak)
+                        .setMessage(R.string.dialog_message_izin_kontak_ditolak)
+                        .setPositiveButton(
+                            R.string.dialog_dismiss_button
+                        ) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        .create().show()
+                }
+            } else {
+                var intent = Intent(Intent.ACTION_PICK)
+                intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+                startActivityForResult(intent, READ_CONTACT_PERMISSION_CODE)
+            }
         }
 
         buttonPilihKontak.setOnClickListener {
             if (insertDataToDatabase(namaKontak.text.toString(), nomorKontak.text.toString())) {
-                clearEditText(it)
+                clearEditText(namaKontak, nomorKontak)
             }
         }
         return binding.root
     }
 
+    private fun checkPermission(permission: String, context: Context): Boolean {
+        var check: Int = ContextCompat.checkSelfPermission(context, permission)
+        return (check == PackageManager.PERMISSION_GRANTED)
+    }
+
+    private fun requestContactPermission(context: Context, activity: Activity) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, READ_CONTACT_PERMISSION)
+        ) {
+            AlertDialog.Builder(context)
+                .setTitle(R.string.dialog_title_izin_dibutuhkan)
+                .setMessage(R.string.dialog_message_izin_kontak_dibutuhkan)
+                .setPositiveButton(
+                    R.string.dialog_positive_button
+                ) { _, _ ->
+                    requestPermissions(
+                        arrayOf(READ_CONTACT_PERMISSION), READ_CONTACT_PERMISSION_CODE
+                    )
+                }
+                .setNegativeButton(
+                    R.string.dialog_negative_button
+                ) { dialog, _ -> dialog.dismiss() }
+                .create().show()
+        } else {
+            requestPermissions(
+                arrayOf(READ_CONTACT_PERMISSION), READ_CONTACT_PERMISSION_CODE
+            )
+        }
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == READ_CONTACT_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), R.string.request_result_diberikan, Toast.LENGTH_SHORT).show();
+            } else {
+                ++permissionRequestCounter
+                if(permissionRequestCounter == 2) {
+                    flagRequestPermissionCalled = true
+                }
+                Toast.makeText(requireContext(), R.string.request_result_ditolak, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         contactPickHelper(
-            requireContext(),
             requireActivity(),
             requestCode,
             resultCode,
@@ -71,11 +141,9 @@ class AddContactFragment : Fragment() {
             nomor_kontak_field,
             nama_kontak_field
         )
-
     }
 
     private fun contactPickHelper(
-        context: Context,
         activity: Activity,
         requestCode: Int,
         resultCode: Int,
@@ -84,7 +152,6 @@ class AddContactFragment : Fragment() {
         nama_kontak_field: EditText
     ) {
         viewModel.contactPicker(
-            context,
             activity,
             requestCode,
             resultCode,
@@ -100,10 +167,9 @@ class AddContactFragment : Fragment() {
     ): Boolean {
         if (inputCheck(namaKontak, nomorKontak)) {
             //create contact
-            val contact = Contact(0, namaKontak, nomorKontak)
-            //add report to database
-            viewModel.addContact(contact)
-
+            val newContact = Contact(0, namaKontak, nomorKontak)
+            //add newContact to database
+            viewModel.addContact(newContact)
             Toast.makeText(requireContext(), R.string.kontak_berhasil, Toast.LENGTH_LONG)
                 .show()
             return true
@@ -118,8 +184,8 @@ class AddContactFragment : Fragment() {
         return !(TextUtils.isEmpty(namaKontak) || TextUtils.isEmpty(nomorKontak))
     }
 
-    fun clearEditText(view: View) {
-        nama_kontak_field.text.clear()
-        nomor_kontak_field.text.clear()
+    fun clearEditText(namaKontak: EditText, nomorKontak: EditText) {
+        namaKontak.text.clear()
+        nomorKontak.text.clear()
     }
 }

@@ -1,17 +1,24 @@
 package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel
 
 import android.app.Application
+import android.content.Intent
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.HomeActivity
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.data.AuthListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

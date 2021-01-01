@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -21,6 +22,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.data.AuthListener
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.ActivityLoginBinding
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel
 import java.io.IOException
 
@@ -33,6 +35,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     private lateinit var authViewModel: AuthViewModel
     private lateinit var email: TextView
     private lateinit var password: TextView
+    private lateinit var appName: TextView
     private lateinit var loginButton: CircularProgressButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +56,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         loginButton = binding.buttonSignIn
         email = binding.loginEmailField
         password = binding.loginPasswordField
+        appName = binding.tvAppNameBelow!!
+
+        appName.setText(Constants.APP_NAME)
 
         if (mAuth.currentUser != null) {
             startActivity(Intent(applicationContext, HomeActivity::class.java))
@@ -101,9 +107,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess() {
         var intent = Intent(this, HomeActivity::class.java)
-
+        //push home activity to top and remove login activity from stack
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
-
         startActivity(intent)
         Toast.makeText(this, R.string.login_berhasil, Toast.LENGTH_LONG).show()
     }

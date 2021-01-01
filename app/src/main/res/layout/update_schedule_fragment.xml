@@ -55,19 +55,6 @@
                         android:hint="@string/nama_obat_hint"
                         android:textSize="20sp" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_margin="10dp"
-                            android:src="@drawable/ic_medical" />
-
-                    </RelativeLayout>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -103,28 +90,55 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="end"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignStart="@id/update_waktu_obat_field_scheduler"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_toStartOf="@+id/tv_time_schedule"
-                            android:src="@drawable/ic_time_schedule" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="end"
+                            android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/update_waktu_obat_field_scheduler"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="15dp"
-                            android:hint="@string/waktu_placeholder"
-                            android:inputType="time" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@id/update_waktu_obat_field_scheduler"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toStartOf="@+id/tv_time_schedule"
+                                android:src="@drawable/ic_time_schedule" />
 
+                            <EditText
+                                android:id="@+id/update_waktu_obat_field_scheduler"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="15dp"
+                                android:inputType="time"
+                                android:hint="00:00"
+                                android:textSize="28sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+                            <android.widget.Button
+                                android:id="@+id/button_update_waktu_obat"
+                                android:layout_width="150dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/shape_button_general_border_only"
+                                android:inputType="time"
+                                android:text="@string/pilih_waktu"
+                                android:textColor="@color/accent_color"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -140,31 +154,30 @@
                 android:id="@+id/button_delete_schedule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_delete"
                 android:layout_gravity="start"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                />
+                android:src="@drawable/ic_delete" />
 
             <android.widget.Button
                 android:id="@+id/button_update_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:layout_gravity="end"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="10dp"
+                android:layout_weight="80"
+                android:background="@drawable/shape_button_general"
                 android:elevation="4dp"
                 android:text="@string/update_jadwal"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/shape_button_general"
-                android:layout_weight="80"/>
+                android:textSize="18sp" />
 
         </LinearLayout>
 

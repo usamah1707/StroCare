@@ -43,7 +43,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Nama Placeholder"
-                    android:textColor="@color/white"
+                    android:textColor="@color/grey"
                     android:textSize="20sp" />
 
                 <TextView
@@ -53,7 +53,7 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="0812345678910"
-                    android:textColor="@color/white"
+                    android:textColor="@color/grey"
                     android:textSize="14sp" />
 
             </LinearLayout>

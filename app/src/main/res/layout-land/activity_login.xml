@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="authViewModel"
             type="id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel" />
@@ -20,12 +21,13 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_marginEnd="20dp"
+            android:gravity="center"
             android:padding="20dp"
             app:layout_anchorGravity="bottom|center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/OutlinedRoundedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/sign_in_linear_layout"
@@ -51,6 +53,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/login_email_layout"
+                    style="@style/OutlinedRoundedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,13 +68,12 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginEnd="6dp"
                         android:autofillHints=""
-                        android:background="@drawable/shape_button_transparent"
+                        android:background="@drawable/shape_edit_text"
                         android:fontFamily="@font/montserrat_regular"
                         android:inputType="textWebEmailAddress|textEmailAddress"
                         android:letterSpacing="0.04"
                         android:padding="12.5dp"
-                        android:textColor="@android:color/white"
-                        android:theme="@style/LoginTextInputLayoutStyle" />
+                        android:textColor="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -106,13 +108,12 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginEnd="6dp"
                         android:autofillHints=""
-                        android:background="@drawable/shape_button_transparent"
+                        android:background="@drawable/shape_edit_text"
                         android:fontFamily="@font/montserrat_regular"
                         android:inputType="textPassword|textWebPassword"
                         android:letterSpacing="0.04"
                         android:padding="12.5dp"
-                        android:textColor="@android:color/white"
-                        android:theme="@style/LoginTextInputLayoutStyle" />
+                        android:textColor="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -166,7 +167,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/image_strocare_icon" />
+                app:srcCompat="@drawable/image_strocare_icon_white" />
 
         </RelativeLayout>
 

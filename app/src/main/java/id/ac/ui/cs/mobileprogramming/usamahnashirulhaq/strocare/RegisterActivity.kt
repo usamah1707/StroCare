@@ -9,6 +9,8 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.ButtonBarLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
@@ -28,6 +30,7 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
     private lateinit var fStore: FirebaseFirestore
     private lateinit var authViewModel: AuthViewModel
     private lateinit var registerButton: CircularProgressButton
+    private lateinit var backToLoginButton: AppCompatButton
     private lateinit var name: TextView
     private lateinit var email: TextView
     private lateinit var userID: String
@@ -48,6 +51,7 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
 
         //inisiasi views
         registerButton = binding.buttonRegister
+        backToLoginButton = binding.buttonBackToLogin!!
         email = binding.registerEmailField
         password = binding.registerPasswordField
         name = binding.registerNameField
@@ -56,6 +60,9 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
             authViewModel.onRegisterButtonClick(it, name.text.toString(), email.text.toString(), password.text.toString())
         }
 
+        backToLoginButton.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     override fun registerFieldCheck(email: String?, password: String?, name: String?): Boolean {
@@ -130,5 +137,9 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
             message,
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

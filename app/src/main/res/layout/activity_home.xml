@@ -6,7 +6,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_color"
+        android:background="@color/main_background_color"
         tools:context=".HomeActivity">
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:text="@string/beranda"
             android:fontFamily="@font/montserrat_regular"
-            android:textColor="@color/white"
+            android:textColor="@color/accent_color"
             android:textSize="38sp"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

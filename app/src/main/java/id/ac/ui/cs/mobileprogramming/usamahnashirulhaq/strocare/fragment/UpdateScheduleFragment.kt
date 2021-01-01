@@ -2,6 +2,7 @@ package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment
 
 import android.app.AlertDialog
 import android.app.AlertDialog.*
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -16,8 +17,12 @@ import androidx.navigation.fragment.navArgs
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.UpdateScheduleFragmentBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Schedule
-import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment.UpdateScheduleFragmentArgs
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.service.AlarmService
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.ScheduleViewModel
+import kotlinx.android.synthetic.main.update_schedule_fragment.*
+import java.sql.Time
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UpdateScheduleFragment : Fragment() {
 
@@ -41,19 +46,28 @@ class UpdateScheduleFragment : Fragment() {
         val dosisObat = binding.updateDosisObatFieldScheduler
         val namaDokter = binding.updateNamaDokterFieldScheduler
         val waktuKonsumsi = binding.updateWaktuObatFieldScheduler
+        val buttonUpdateWaktu = binding.buttonUpdateWaktuObat!!
+        val buttonUpdateSchedule = binding.buttonUpdateSchedule
 
         namaObat.setText(args.currentSchedule.namaObat)
         dosisObat.setText(args.currentSchedule.dosisObat)
         namaDokter.setText(args.currentSchedule.namaDokter)
         waktuKonsumsi.setText(args.currentSchedule.waktuKonsumsi)
 
-        binding.buttonUpdateSchedule.setOnClickListener {
+        buttonUpdateSchedule.setOnClickListener {
             updateItem(
                 namaObat.text.toString(),
                 dosisObat.text.toString(),
                 namaDokter.text.toString(),
                 waktuKonsumsi.text.toString()
             )
+        }
+
+        buttonUpdateWaktu.setOnClickListener {
+            var alarmService = AlarmService(requireContext())
+            setAlarm {
+                alarmService.setRepetitiveAlarm(it)
+            }
         }
 
         binding.buttonDeleteSchedule.setOnClickListener {
@@ -110,6 +124,31 @@ class UpdateScheduleFragment : Fragment() {
             .setTitle(getString(R.string.dialog_allert_title, namaObat))
             .setMessage(getString(R.string.dialog_allert_message, namaObat))
             .show()
+    }
+
+    @Suppress("DEPRECATION")
+    private fun setAlarm(callback: (Long) -> Unit) {
+        Calendar.getInstance().apply {
+            this.set(Calendar.SECOND, 0)
+            this.set(Calendar.MILLISECOND, 0)
+            TimePickerDialog(
+                context,
+                0,
+                { _, hour, minute ->
+                    this.set(Calendar.HOUR_OF_DAY, hour)
+                    this.set(Calendar.MINUTE, minute)
+                    val time = Time(hour, minute, 0)
+                    val simpleDateFormat = SimpleDateFormat("hh:mm aa", Locale.getDefault())
+                    val text: String = simpleDateFormat.format(time)
+                    update_waktu_obat_field_scheduler.setText(text)
+                    callback(this.timeInMillis)
+                },
+                this.get(Calendar.HOUR_OF_DAY),
+                this.get(Calendar.MINUTE),
+                false
+            ).show()
+
+        }
     }
 
 }
