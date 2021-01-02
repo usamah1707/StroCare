@@ -4,10 +4,13 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.receiver.AlarmReceiver
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.RandomIntUtil
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class AlarmService(private val context: Context) {
     private val alarmManager: AlarmManager? =
@@ -41,6 +44,19 @@ class AlarmService(private val context: Context) {
                 )
             }
         }
+    }
+
+    fun deleteAlarm() {
+        val cal = Calendar.getInstance().apply {
+            this.timeInMillis = timeInMillis + TimeUnit.DAYS.toMillis(1)
+        }
+
+        alarmManager?.cancel(getPendingIntent(
+            getIntent().apply {
+                action = Constants.ACTION_SET_REPETITIVE_ALARM
+                putExtra(Constants.EXTRA_EXACT_ALARM_TIME, cal.timeInMillis)
+            }
+        ))
     }
 
     private fun getIntent() = Intent(context, AlarmReceiver::class.java)

@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.UpdateScheduleFragmentBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Schedule
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.receiver.AlarmReceiver
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.service.AlarmService
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.ScheduleViewModel
 import kotlinx.android.synthetic.main.update_schedule_fragment.*
@@ -123,6 +124,9 @@ class UpdateScheduleFragment : Fragment() {
             .setTitle(getString(R.string.dialog_allert_title, namaObat))
             .setMessage(getString(R.string.dialog_allert_message, namaObat))
             .show()
+
+        var alarmService : AlarmService = AlarmService(requireContext())
+        alarmService.deleteAlarm()
     }
 
     @Suppress("DEPRECATION")
