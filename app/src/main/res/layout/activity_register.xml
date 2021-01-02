@@ -26,9 +26,9 @@
             app:layout_anchorGravity="bottom|center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/form_constraint_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/register_linear_layout"
                 android:layout_below="@+id/strocare_top_icon"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
@@ -176,11 +176,12 @@
                 android:id="@+id/register_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/form_constraint_layout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
@@ -206,8 +207,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="@string/sudah_punya_akun"
                     android:textColor="@android:color/white"

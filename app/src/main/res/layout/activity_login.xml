@@ -146,14 +146,12 @@
                 android:id="@+id/sign_in_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/appName"
                 android:layout_below="@+id/form_field_layout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -201,17 +199,19 @@
                 android:id="@+id/tv_appName_below"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_in_linear_layout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="0dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="0dp"
-                android:layout_marginBottom="5dp"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textColor="@color/white"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat_light"
-                android:text="[app_name]" />
+                android:text="[app_name]"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/strocare_top_icon"
