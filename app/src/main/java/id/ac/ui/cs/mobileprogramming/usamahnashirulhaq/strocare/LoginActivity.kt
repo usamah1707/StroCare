@@ -1,20 +1,19 @@
 package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
 import com.google.android.gms.tasks.Task
@@ -23,8 +22,8 @@ import com.google.firebase.auth.FirebaseAuth
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.data.AuthListener
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.ActivityLoginBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants
+import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.NetworkConnection
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel
-import java.io.IOException
 
 
 class LoginActivity : AppCompatActivity(), AuthListener {
@@ -37,6 +36,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     private lateinit var password: TextView
     private lateinit var appName: TextView
     private lateinit var loginButton: CircularProgressButton
+    private lateinit var networkConnection: NetworkConnection
+    private var loginCalled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         window.statusBarColor = Color.TRANSPARENT
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance()
+        networkConnection = NetworkConnection(applicationContext)
 
         //inisiasi AuthViewModel
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
@@ -64,8 +66,22 @@ class LoginActivity : AppCompatActivity(), AuthListener {
             startActivity(Intent(applicationContext, HomeActivity::class.java))
         }
 
-        loginButton.setOnClickListener{
-            authViewModel.onLoginButtonClick(it, email.text.toString(), password.text.toString())
+        loginButton.setOnClickListener {
+            loginCalled = false
+            networkConnection.observe(this, Observer { isConnected ->
+                if (isConnected) {
+                    if (!loginCalled){
+                            authViewModel.onLoginButtonClick(
+                                it,
+                                email.text.toString(),
+                                password.text.toString()
+                            )
+                        loginCalled = true
+                        }
+                } else {
+                    noConnectionDialogBuilder()
+                }
+            })
         }
 
         binding.buttonRegister.setOnClickListener(View.OnClickListener { view: View ->
@@ -73,7 +89,21 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         })
     }
 
-    fun openRegisterPage(view: View){
+    private fun noConnectionDialogBuilder() {
+        val image = ImageView(this)
+        image.setImageResource(R.drawable.image_no_network_available)
+
+        val builder: AlertDialog.Builder =
+            AlertDialog.Builder(this)
+                .setView(image)
+                .setTitle(R.string.jaringan_tidak_ada)
+                .setPositiveButton(R.string.dialog_dismiss_button) { dialog, _ ->
+                    dialog.dismiss()
+                }
+        builder.create().show()
+    }
+
+    fun openRegisterPage(view: View) {
         startActivity(Intent(this, RegisterActivity::class.java))
     }
 
@@ -110,13 +140,12 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         //push home activity to top and remove login activity from stack
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
-        Toast.makeText(this, R.string.login_berhasil, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.login_berhasil, Toast.LENGTH_SHORT).show()
     }
 
     override fun onFailure(message: String) {
         loginButton.revertAnimation()
         loginButton.background = getDrawable(R.drawable.shape_button_login)
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
 }

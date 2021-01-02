@@ -98,5 +98,21 @@
     <string name="izin_read_kontak">Read-contact permission has not been granted</string>
     <string name="izin_sms">SMS permission has not been granted</string>
     <string name="sms_berhasil">SMS Sent!</string>
+    <string name="belum_punya_akun">Don\'t have account?</string>
+    <string name="sudah_punya_akun">Already have account?</string>
+    <string name="buat_akun">Create account</string>
+    <string name="kembali_ke_login">Login</string>
+    <string name="jaringan_tidak_ada">No service detected</string>
+    <string name="dialog_title_izin_ditolak">Permission denied</string>
+    <string name="dialog_title_izin_dibutuhkan">Permission needed</string>
+    <string name="dialog_message_izin_kontak_ditolak">Permission to access contacts has been denied. You have to manually grant permission in the app info or settings menu.</string>
+    <string name="dialog_message_izin_kontak_dibutuhkan">Permission to access contacts is required to use this feature. If permission is not granted, this feature cannot be used and you must manually grant permission in the application info menu</string>
+    <string name="dialog_message_izin_sms_ditolak">Permission to access SMS has been denied. You have to manually grant permission in the app info or settings menu.</string>
+    <string name="dialog_message_izin_sms_dibutuhkan">Permission to access SMS is required to use this feature. If permission is not granted, this feature cannot be used and you must manually grant permission in the application info menu</string>
+    <string name="dialog_positive_button">Allow</string>
+    <string name="dialog_negative_button">Deny</string>
+    <string name="dialog_dismiss_button">Close</string>
+    <string name="request_result_diberikan">Access permission granted</string>
+    <string name="request_result_ditolak">Access permission denied</string>
 
 </resources>

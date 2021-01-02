@@ -20,6 +20,7 @@
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="buat_akun">Buat akun</string>
     <string name="kembali_ke_login">Masuk</string>
+    <string name="jaringan_tidak_ada">Jaringan tidak terdeteksi</string>
 
     //Profile string assets
     <string name="pilih_kontak">Pilih kontak</string>
