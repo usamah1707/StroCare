@@ -25,7 +25,6 @@ import com.google.firebase.firestore.*
 import com.google.firebase.ktx.Firebase
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.adapter.ContactAdapter
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.ActivityProfileBinding
-import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants.SMS_PERMISSION
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.util.Constants.SMS_REQUEST_CODE
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel
@@ -36,7 +35,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var fStore: FirebaseFirestore
     private lateinit var navBottomView: BottomNavigationView
-    private lateinit var viewModel: ContactViewModel
+    private lateinit var contactViewModel: ContactViewModel
     private lateinit var authViewModel: AuthViewModel
     private lateinit var logoutButton: ImageView
     private var flagRequestPermissionCalled: Boolean = false
@@ -58,8 +57,8 @@ class ProfileActivity : AppCompatActivity() {
         val recycler = binding.contactRecyclerView
 
         //contact viewmodel
-        viewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
-        var contactData = viewModel.readAllData
+        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+        var contactData = contactViewModel.readAllData
         contactData.observe(this, Observer { contact ->
             adapter.setData(contact)
         })
@@ -90,7 +89,7 @@ class ProfileActivity : AppCompatActivity() {
                     sendSms(this@ProfileActivity, item.nomorTelepon)
                 }
             } else {
-                Toast.makeText(this@ProfileActivity, R.string.terjadi_kesalahan, Toast.LENGTH_LONG)
+                Toast.makeText(this@ProfileActivity, R.string.terjadi_kesalahan, Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -166,7 +165,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
     fun sendSms(context: Context, nomorTelepon: String) {
-        viewModel.sendSms(context, nomorTelepon)
+        contactViewModel.sendSms(context, nomorTelepon)
     }
 
     fun logout() {

@@ -2,8 +2,6 @@ package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,20 +9,17 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.core.content.res.TypedArrayUtils
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.fragment.findNavController
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.AddReportFragmentBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.model.Report
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.ReportViewModel
-import kotlinx.android.synthetic.main.add_report_fragment.*
 import java.text.DateFormat
 import java.util.*
 
 class AddReportFragment : Fragment() {
 
-    private lateinit var viewModel: ReportViewModel
+    private lateinit var reportViewModel: ReportViewModel
     private var position1 = 0
     private var position2 = 0
     private var position3 = 0
@@ -40,7 +35,7 @@ class AddReportFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
+        reportViewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
 
         val question1: Spinner = binding.spinnerJawabanReport1
         val question2: Spinner = binding.spinnerJawabanReport2
@@ -109,17 +104,17 @@ class AddReportFragment : Fragment() {
                 getString(R.string.tidak_sehat))
             val failConclude : String = getString(R.string.gagal_menyimpulkan)
             //create report
-            val kesimpulan = viewModel.makeConclusion(question1, question2, question3, listofConclusion, failConclude)
+            val kesimpulan = reportViewModel.makeConclusion(question1, question2, question3, listofConclusion, failConclude)
             val currentDate = getCurrentDate()
             val report = Report(0, currentDate, kesimpulan, question1, question2, question3)
             //add report to database
-            viewModel.addReport(report)
+            reportViewModel.addReport(report)
 
-            Toast.makeText(requireContext(), R.string.laporan_berhasil, Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.laporan_berhasil, Toast.LENGTH_SHORT)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), R.string.laporan_field_kurang, Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.laporan_field_kurang, Toast.LENGTH_SHORT)
                 .show()
             return false
         }

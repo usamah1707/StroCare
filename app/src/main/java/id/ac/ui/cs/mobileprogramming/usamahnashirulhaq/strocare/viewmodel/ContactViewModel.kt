@@ -71,6 +71,6 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
     fun sendSms(context: Context, nomorTelepon: String) {
         var smsManager: SmsManager = SmsManager.getDefault()
         smsManager.sendTextMessage(nomorTelepon, null, PESAN, null, null)
-        Toast.makeText(context, R.string.sms_berhasil, Toast.LENGTH_LONG).show()
+        Toast.makeText(context, R.string.sms_berhasil, Toast.LENGTH_SHORT).show()
     }
 }

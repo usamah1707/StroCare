@@ -23,7 +23,7 @@ import java.util.*
 
 class AddScheduleFragment : Fragment() {
 
-    private lateinit var viewModel: ScheduleViewModel
+    private lateinit var scheduleViewModel: ScheduleViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +36,7 @@ class AddScheduleFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
 
         binding.buttonAddSchedule.setOnClickListener {
             var namaObat = binding.namaObatFieldScheduler.text.toString()
@@ -68,13 +68,13 @@ class AddScheduleFragment : Fragment() {
             //create schedule
             val schedule = Schedule(0, namaObat, dosisObat, namaDokter, waktuKonsumsi)
             //add schedule to database
-            viewModel.addSchedule(schedule)
+            scheduleViewModel.addSchedule(schedule)
 
-            Toast.makeText(requireContext(), R.string.jadwal_berhasil, Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.jadwal_berhasil, Toast.LENGTH_SHORT)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_SHORT).show()
             return false
         }
     }
@@ -92,7 +92,7 @@ class AddScheduleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
     }
 
     fun clearEditText(view: View) {

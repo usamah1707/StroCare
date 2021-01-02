@@ -14,7 +14,7 @@ import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.Report
 
 class DetailReportFragment : Fragment() {
 
-    private lateinit var viewModel: ReportViewModel
+    private lateinit var reportViewModel: ReportViewModel
     private val args by navArgs<DetailReportFragmentArgs>()
 
     override fun onCreateView(
@@ -29,7 +29,7 @@ class DetailReportFragment : Fragment() {
         )
         val listOfAnswer = listOf<String>("",getString(R.string.baik), getString(R.string.agak_buruk), getString(R.string.buruk))
 
-        viewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
+        reportViewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
 
         val hasilLaporan = binding.tvHasilLaporan
         val tanggalLaporan = binding.tvTanggalLaporan

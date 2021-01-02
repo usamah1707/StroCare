@@ -1,7 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.fragment
 
 import android.app.AlertDialog
-import android.app.AlertDialog.*
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.TextUtils
@@ -26,7 +25,7 @@ import java.util.*
 
 class UpdateScheduleFragment : Fragment() {
 
-    private lateinit var viewModel: ScheduleViewModel
+    private lateinit var scheduleViewModel: ScheduleViewModel
     private val args by navArgs<UpdateScheduleFragmentArgs>()
 
     override fun onCreateView(
@@ -40,7 +39,7 @@ class UpdateScheduleFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
 
         val namaObat = binding.updateNamaObatFieldScheduler
         val dosisObat = binding.updateDosisObatFieldScheduler
@@ -88,12 +87,12 @@ class UpdateScheduleFragment : Fragment() {
             val updatedSchedule =
                 Schedule(args.currentSchedule.id, namaObat, dosisObat, namaDokter, waktuKonsumsi)
             //update schedule
-            viewModel.updateSchedule(updatedSchedule)
-            Toast.makeText(requireContext(), R.string.jadwal_update_berhasil, Toast.LENGTH_LONG).show()
+            scheduleViewModel.updateSchedule(updatedSchedule)
+            Toast.makeText(requireContext(), R.string.jadwal_update_berhasil, Toast.LENGTH_SHORT).show()
             //navigate back
             findNavController().navigate(R.id.action_updateScheduleFragment_to_listScheduleFragment)
         } else {
-            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), R.string.jadwal_field_kurang, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -112,11 +111,11 @@ class UpdateScheduleFragment : Fragment() {
         var namaObat = args.currentSchedule.namaObat
         AlertDialog.Builder(requireContext())
             .setPositiveButton(R.string.dialog_allert_ya) { _, _ ->
-                viewModel.deleteSchedule(args.currentSchedule)
+                scheduleViewModel.deleteSchedule(args.currentSchedule)
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.jadwal_delete_berhasil, namaObat),
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_SHORT
                 ).show()
                 findNavController().navigate(R.id.action_updateScheduleFragment_to_listScheduleFragment)
             }

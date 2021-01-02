@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.add_contact_fragment.*
 
 class AddContactFragment : Fragment() {
 
-    private lateinit var viewModel: ContactViewModel
+    private lateinit var contactViewModel: ContactViewModel
     private var flagRequestPermissionCalled: Boolean = false
     private var permissionRequestCounter: Int = 0
 
@@ -38,7 +38,7 @@ class AddContactFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<AddContactFragmentBinding>(
@@ -151,7 +151,7 @@ class AddContactFragment : Fragment() {
         nomor_kontak_field: EditText,
         nama_kontak_field: EditText
     ) {
-        viewModel.contactPicker(
+        contactViewModel.contactPicker(
             activity,
             requestCode,
             resultCode,
@@ -169,12 +169,12 @@ class AddContactFragment : Fragment() {
             //create contact
             val newContact = Contact(0, namaKontak, nomorKontak)
             //add newContact to database
-            viewModel.addContact(newContact)
-            Toast.makeText(requireContext(), R.string.kontak_berhasil, Toast.LENGTH_LONG)
+            contactViewModel.addContact(newContact)
+            Toast.makeText(requireContext(), R.string.kontak_berhasil, Toast.LENGTH_SHORT)
                 .show()
             return true
         } else {
-            Toast.makeText(requireContext(), R.string.kontak_field_kurang, Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), R.string.kontak_field_kurang, Toast.LENGTH_SHORT)
                 .show()
             return false
         }

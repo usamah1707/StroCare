@@ -1,16 +1,13 @@
 package id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.ButtonBarLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
@@ -19,7 +16,6 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.R
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.data.AuthListener
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.databinding.ActivityRegisterBinding
 import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.AuthViewModel
@@ -39,8 +35,9 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         mAuth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
@@ -57,10 +54,15 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
         name = binding.registerNameField
 
         registerButton.setOnClickListener {
-            authViewModel.onRegisterButtonClick(it, name.text.toString(), email.text.toString(), password.text.toString())
+            authViewModel.onRegisterButtonClick(
+                it,
+                name.text.toString(),
+                email.text.toString(),
+                password.text.toString()
+            )
         }
 
-        backToLoginButton.setOnClickListener{
+        backToLoginButton.setOnClickListener {
             onBackPressed()
         }
     }
@@ -120,7 +122,7 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
             Toast.makeText(
                 applicationContext,
                 getString(R.string.registrasi_berhasil) + nama,
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
         var intent = Intent(this, HomeActivity::class.java)
@@ -135,7 +137,7 @@ class RegisterActivity : AppCompatActivity(), AuthListener {
         Toast.makeText(
             applicationContext,
             message,
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
     }
 

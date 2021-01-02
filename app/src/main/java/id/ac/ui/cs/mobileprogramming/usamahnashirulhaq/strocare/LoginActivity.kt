@@ -70,14 +70,14 @@ class LoginActivity : AppCompatActivity(), AuthListener {
             loginCalled = false
             networkConnection.observe(this, Observer { isConnected ->
                 if (isConnected) {
-                    if (!loginCalled){
-                            authViewModel.onLoginButtonClick(
-                                it,
-                                email.text.toString(),
-                                password.text.toString()
-                            )
+                    if (!loginCalled) {
+                        authViewModel.onLoginButtonClick(
+                            it,
+                            email.text.toString(),
+                            password.text.toString()
+                        )
                         loginCalled = true
-                        }
+                    }
                 } else {
                     noConnectionDialogBuilder()
                 }

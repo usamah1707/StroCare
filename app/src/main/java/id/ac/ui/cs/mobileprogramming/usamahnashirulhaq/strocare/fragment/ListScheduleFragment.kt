@@ -17,7 +17,7 @@ import id.ac.ui.cs.mobileprogramming.usamahnashirulhaq.strocare.viewmodel.Schedu
 class ListScheduleFragment : Fragment() {
 
 
-    private lateinit var viewModel: ScheduleViewModel
+    private lateinit var scheduleViewModel: ScheduleViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +38,8 @@ class ListScheduleFragment : Fragment() {
         recycler.setHasFixedSize(true)
 
         //schedule viewmodel
-        viewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
-        viewModel.readAllData.observe(viewLifecycleOwner, Observer {schedule ->
+        scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
+        scheduleViewModel.readAllData.observe(viewLifecycleOwner, Observer { schedule ->
             adapter.setData(schedule)
         })
         return binding.root
