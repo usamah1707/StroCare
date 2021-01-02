@@ -109,10 +109,14 @@
     <string name="dialog_message_izin_kontak_dibutuhkan">Permission to access contacts is required to use this feature. If permission is not granted, this feature cannot be used and you must manually grant permission in the application info menu</string>
     <string name="dialog_message_izin_sms_ditolak">Permission to access SMS has been denied. You have to manually grant permission in the app info or settings menu.</string>
     <string name="dialog_message_izin_sms_dibutuhkan">Permission to access SMS is required to use this feature. If permission is not granted, this feature cannot be used and you must manually grant permission in the application info menu</string>
-    <string name="dialog_positive_button">Allow</string>
-    <string name="dialog_negative_button">Deny</string>
+    <string name="permission_dialog_positive_button">Allow</string>
+    <string name="permission_dialog_negative_button">Deny</string>
     <string name="dialog_dismiss_button">Close</string>
     <string name="request_result_diberikan">Access permission granted</string>
     <string name="request_result_ditolak">Access permission denied</string>
+    <string name="logout_dialog_positive_button">Yes, Logout</string>
+    <string name="logout_dialog_negative_button">Cancel</string>
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_message">Are you sure you want to logout? All data will remain.</string>
 
 </resources>

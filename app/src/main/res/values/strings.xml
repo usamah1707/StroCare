@@ -31,8 +31,12 @@
     <string name="dialog_message_izin_kontak_dibutuhkan">Izin untuk mengakses kontak dibutuhkan untuk menggunakan fitur ini. Jika izin tidak diberikan, maka fitur ini tidak dapat digunakan dan anda harus memberikan izin secara manual di menu info aplikasi</string>
     <string name="dialog_message_izin_sms_ditolak">Izin mengakses SMS telah ditolak. Anda harus memberikan izin secara manual di menu info aplikasi atau pengaturan.</string>
     <string name="dialog_message_izin_sms_dibutuhkan">Izin untuk mengakses SMS dibutuhkan untuk menggunakan fitur ini. Jika izin tidak diberikan, maka fitur ini tidak dapat digunakan dan anda harus memberikan izin secara manual di menu info aplikasi</string>
-    <string name="dialog_positive_button">Izinkan</string>
-    <string name="dialog_negative_button">Tolak</string>
+    <string name="permission_dialog_positive_button">Izinkan</string>
+    <string name="permission_dialog_negative_button">Tolak</string>
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_message">Anda yakin akan melakukan logout? Semua data akan tetap tersimpan.</string>
+    <string name="logout_dialog_positive_button">Ya, Logout</string>
+    <string name="logout_dialog_negative_button">Batal</string>
     <string name="dialog_dismiss_button">Tutup</string>
     <string name="request_result_diberikan">Izin akses diberikan</string>
     <string name="request_result_ditolak">Izin akses ditolak</string>

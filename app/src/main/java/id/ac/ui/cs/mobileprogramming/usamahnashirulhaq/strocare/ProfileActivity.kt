@@ -96,7 +96,7 @@ class ProfileActivity : AppCompatActivity() {
 
         logoutButton = binding.buttonLogout
         logoutButton.setOnClickListener {
-            logout()
+            logoutDialogBuilder()
         }
 
         retriveInfo(fStore, auth, binding.tvNamaAkun, binding.tvEmailAkun)
@@ -118,7 +118,7 @@ class ProfileActivity : AppCompatActivity() {
                 .setTitle(R.string.dialog_title_izin_dibutuhkan)
                 .setMessage(R.string.dialog_message_izin_sms_dibutuhkan)
                 .setPositiveButton(
-                    R.string.dialog_positive_button
+                    R.string.permission_dialog_positive_button
                 ) { _, _ ->
                     requestPermissions(
                         arrayOf(SMS_PERMISSION),
@@ -126,7 +126,7 @@ class ProfileActivity : AppCompatActivity() {
                     )
                 }
                 .setNegativeButton(
-                    R.string.dialog_negative_button
+                    R.string.permission_dialog_negative_button
                 ) { dialog, _ -> dialog.dismiss() }
                 .create().show()
         } else {
@@ -166,6 +166,21 @@ class ProfileActivity : AppCompatActivity() {
 
     fun sendSms(context: Context, nomorTelepon: String) {
         contactViewModel.sendSms(context, nomorTelepon)
+    }
+
+    private fun logoutDialogBuilder() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.logout_dialog_title)
+            .setMessage(R.string.logout_dialog_message)
+            .setPositiveButton(R.string.logout_dialog_positive_button)
+            { _, _ ->
+                logout()
+            }
+            .setNegativeButton(R.string.logout_dialog_negative_button)
+            { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create().show()
     }
 
     fun logout() {

@@ -93,14 +93,14 @@ class AddContactFragment : Fragment() {
                 .setTitle(R.string.dialog_title_izin_dibutuhkan)
                 .setMessage(R.string.dialog_message_izin_kontak_dibutuhkan)
                 .setPositiveButton(
-                    R.string.dialog_positive_button
+                    R.string.permission_dialog_positive_button
                 ) { _, _ ->
                     requestPermissions(
                         arrayOf(READ_CONTACT_PERMISSION), READ_CONTACT_PERMISSION_CODE
                     )
                 }
                 .setNegativeButton(
-                    R.string.dialog_negative_button
+                    R.string.permission_dialog_negative_button
                 ) { dialog, _ -> dialog.dismiss() }
                 .create().show()
         } else {
